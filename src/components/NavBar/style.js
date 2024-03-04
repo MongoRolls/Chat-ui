@@ -25,7 +25,7 @@ const MenuIcon = styled(FontAwesomeIcon)`
 
 const StyledNavBar = styled.nav`
   display: grid;
-  grid-template-rows: 2fr 4fr;
+  grid-template-rows: 1fr 4fr;
   width: 100px;
   height: 100vh;
   background-color: ${({ theme }) => theme.darkPurple};
