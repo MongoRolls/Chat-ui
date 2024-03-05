@@ -19,11 +19,18 @@ import { DropdownItem } from "components/DropDown/style";
 import Seperator from "components/Seperator";
 import Dropdown from "components/DropDown";
 
-function TitleBar({ children, ...rest }) {
+function TitleBar({
+  animeProps,
+  style,
+  onVideoClick,
+  onAvatarClick,
+  children,
+  ...rest
+}) {
   return (
     <ThemeProvider theme={theme}>
-      <StyledTitleBar {...rest}>
-        <Avatar status="offline" src={face} />
+      <StyledTitleBar {...rest} style={{ ...style, ...animeProps }}>
+        <Avatar onClick={onAvatarClick} status="offline" src={face} />
         <Title>
           <Paragraph size="large">O.o?</Paragraph>
           <Paragraph type="secondary">
@@ -33,7 +40,7 @@ function TitleBar({ children, ...rest }) {
         </Title>
 
         <Actions>
-          <Icon opacity={0.3} icon={Call} />
+          <Icon opacity={0.3} icon={Call} onClick={onVideoClick} />
           <Icon opacity={0.3} icon={Camera} />
           <Dropdown
             content={

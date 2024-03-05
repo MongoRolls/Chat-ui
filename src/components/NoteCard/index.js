@@ -13,14 +13,14 @@ import { ThemeProvider } from "styled-components";
 import theme from "theme";
 import note1 from "assets/images/note-1.jpg";
 
-function NoteCard({ children, ...rest }) {
+function NoteCard({ note, children, ...rest }) {
   return (
     <ThemeProvider theme={theme}>
       <StyledNoteCard {...rest}>
-        <NoteImage src={note1} />
-        <NoteTitle>这是笔记标题</NoteTitle>
-        <NoteExcerpt>这是笔记内容摘要</NoteExcerpt>
-        <NotePublishTime>2023-12-06</NotePublishTime>
+        <NoteImage src={note.image} />
+        <NoteTitle>{note.title}</NoteTitle>
+        <NoteExcerpt>{note.Excerpt}</NoteExcerpt>
+        <NotePublishTime>{note.PUblishAt}</NotePublishTime>
       </StyledNoteCard>
     </ThemeProvider>
   );

@@ -18,8 +18,11 @@ import Text from "components/Text";
 
 import { ReactComponent as closeCircle } from "assets/icons/closeCircle.svg";
 import face from "assets/images/face-male-1.jpg";
+import { useNavigate } from "react-router-dom";
 
 function BlockedList({ children, ...rest }) {
+  const navigate = useNavigate();
+
   return (
     <ThemeProvider theme={theme}>
       <StyledBlockedList {...rest}>
@@ -29,6 +32,7 @@ function BlockedList({ children, ...rest }) {
             css={`
               cursor: pointer;
             `}
+            onClick={() => navigate(-1)}
           />
           <Text size="large">已屏蔽的好友</Text>
         </SettingsMenu>

@@ -18,8 +18,14 @@ import MessageCard from "components/MessageCard";
 import { ReactComponent as Plus } from "assets/icons/plus.svg";
 import face1 from "assets/images/face-male-1.jpg";
 import FilterList from "components/FilterList";
+import { useTrail, animated } from "react-spring";
+import useStaggeredList from "hooks/useStaggeredList";
+
+import messageData from "data/messages";
 
 function MessageList({ children, ...rest }) {
+  const trailAnimes = useStaggeredList(6);
+
   return (
     <ThemeProvider theme={theme}>
       <StyledMessageList {...rest}>
@@ -28,19 +34,21 @@ function MessageList({ children, ...rest }) {
           actionLabel="创建会话"
         >
           <ChatList>
-            {[1, 2, 3, 4, 5, 6].map((_, index) => (
-              <MessageCard
-                key={index}
-                active={index === 3}
-                replied={index % 3 === 0}
-                avatarSrc={face1}
-                name="李铭浩"
-                avatarStatus="online"
-                statusText="在线"
-                time="3 小时之前"
-                message="即使爬到最高的山上，一次也只能脚踏实地地"
-                unreadCount={2}
-              />
+            {messageData.map((message, index) => (
+              <animated.div key={message.id} style={trailAnimes[index]}>
+                <MessageCard
+                  key={messageData.id}
+                  active={message.id === 3}
+                  replied={message.replied}
+                  avatarSrc={message.avatarSrc}
+                  name={message.name}
+                  avatarStatus={message.status}
+                  statusText={message.statusText}
+                  time={message.time}
+                  message={message.message}
+                  unreadCount={message.unreadCount}
+                />
+              </animated.div>
             ))}
           </ChatList>
         </FilterList>

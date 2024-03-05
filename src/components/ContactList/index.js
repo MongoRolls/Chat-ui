@@ -8,8 +8,10 @@ import { ThemeProvider } from "styled-components";
 import theme from "theme";
 import ContactCard from "components/ContactCard";
 import FilterList from "components/FilterList";
-
+import useStaggeredList from "hooks/useStaggeredList";
+import { animated } from "react-spring";
 function ContactList({ children, ...rest }) {
+  const trailAnimes = useStaggeredList(10);
   return (
     <ThemeProvider theme={theme}>
       <StyledContactList {...rest}>
@@ -19,7 +21,9 @@ function ContactList({ children, ...rest }) {
         >
           <Contacts>
             {new Array(10).fill(0).map((_, i) => (
-              <ContactCard key={i} />
+              <animated.div key={i} style={trailAnimes[i]}>
+                <ContactCard key={i} />
+              </animated.div>
             ))}
           </Contacts>
         </FilterList>

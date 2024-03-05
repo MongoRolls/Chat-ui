@@ -1,7 +1,7 @@
 import ChatBubble from "components/ChatBubble";
 import styled from "styled-components";
-
-const Conversations = styled.div`
+import { animated } from "react-spring";
+const Conversations = styled(animated.div)`
   padding: 10px 15px;
   display: flex;
   flex-direction: column;

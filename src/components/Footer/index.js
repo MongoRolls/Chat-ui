@@ -18,12 +18,12 @@ import { ReactComponent as PlaneIcon } from "assets/icons/plane.svg";
 import Emoji from "components/Emoji";
 import Popover from "components/Popover";
 
-function Footer({ children, ...rest }) {
+function Footer({ style, animeProps, children, ...rest }) {
   const [emojiIconActive, setemojiIconActive] = useState(false);
 
   return (
     <ThemeProvider theme={theme}>
-      <StyledFooter {...rest}>
+      <StyledFooter style={{ ...style, ...animeProps }} {...rest}>
         <Input
           placeholder="说点什么呀"
           prefix={<Icon icon={ClipIcon} />}

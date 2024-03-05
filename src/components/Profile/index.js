@@ -39,8 +39,9 @@ import "styled-components/macro";
 // `}
 
 function Profile({
+  onCloceClick,
   showEditBtn,
-  showCloseIcon,
+  showCloseIcon = true,
   onEdit,
   status,
   children,
@@ -49,7 +50,7 @@ function Profile({
   return (
     <ThemeProvider theme={theme}>
       <StyledProfile {...rest}>
-        {showCloseIcon && <CloseIcon icon={Cross} />}
+        {showCloseIcon && <CloseIcon icon={Cross} onClick={onCloceClick} />}
 
         <Avatar
           src={face}
