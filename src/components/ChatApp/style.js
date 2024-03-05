@@ -32,14 +32,13 @@ const Drawer = styled.div`
   max-width: 310px;
   width: 0;
   transform: translateX(200px);
-
-  will-change: width, tranform;
+  transition: transform 0.4s;
+  will-change: width, transform;
   ${({ show }) =>
     show &&
     css`
       width: initial;
       transform: translateX(0px);
-      transition: transform 0.4s;
     `}
 `;
 

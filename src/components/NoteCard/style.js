@@ -1,13 +1,13 @@
+import styled from "styled-components";
 import Heading from "components/Heading";
 import Paragraph from "components/Paragraph";
-import styled from "styled-components";
 import { card } from "utils/mixins";
 
 const NoteImage = styled.img`
   grid-area: image;
   width: 60px;
   height: 60px;
-  object-fit: cover；;
+  object-fit: cover;
 `;
 
 const NoteTitle = styled(Heading).attrs({ level: 2 })`
@@ -34,9 +34,8 @@ const StyledNoteCard = styled.div`
   grid-template-areas:
     "image title time"
     "image excerpt excerpt";
-
   grid-template-columns: 72px 2fr 1fr;
 `;
 
 export default StyledNoteCard;
-export { NoteExcerpt, NoteImage, NoteTitle, NotePublishTime };
+export { NoteImage, NoteTitle, NoteExcerpt, NotePublishTime };

@@ -19,8 +19,8 @@ function NoteCard({ note, children, ...rest }) {
       <StyledNoteCard {...rest}>
         <NoteImage src={note.image} />
         <NoteTitle>{note.title}</NoteTitle>
-        <NoteExcerpt>{note.Excerpt}</NoteExcerpt>
-        <NotePublishTime>{note.PUblishAt}</NotePublishTime>
+        <NoteExcerpt>{note.excerpt}</NoteExcerpt>
+        <NotePublishTime>{note.publishedAt}</NotePublishTime>
       </StyledNoteCard>
     </ThemeProvider>
   );

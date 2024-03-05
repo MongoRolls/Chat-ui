@@ -1,6 +1,18 @@
 import styled from "styled-components";
 import arrowRight from "assets/icons/arrowRight.svg";
 import Icon from "components/Icon";
+
+const SocialLinks = styled.div`
+  & > * {
+    margin: 0 9px;
+  }
+`;
+
+const ContactSection = styled.section`
+  display: grid;
+  row-gap: 18px;
+`;
+
 const AlbumSection = styled.section``;
 
 const AlbumTitle = styled.div`
@@ -13,7 +25,6 @@ const AlbumTitle = styled.div`
     text-decoration: none;
     font-size: ${({ theme }) => theme.normal};
     color: ${({ theme }) => theme.primaryColor};
-
     &::after {
       display: inline-block;
       content: url(${arrowRight});
@@ -46,12 +57,9 @@ const CloseIcon = styled(Icon).attrs({ opacity: 0.3 })`
 
 const StyledProfile = styled.div`
   display: grid;
-  align-content: start; //垂直靠上
+  align-content: start;
   justify-content: center;
   justify-items: center;
-
-  /* gap: 20px; */
-
   position: relative;
   padding: 30px;
   height: 100vh;
@@ -59,12 +67,13 @@ const StyledProfile = styled.div`
   overflow-y: auto;
 `;
 
-const SocialLinks = styled.div`
-  & > * {
-    margin: 0 9px;
-  }
-`;
-
 export default StyledProfile;
-
-export { SocialLinks, Album, AlbumTitle, AlbumSection, Photo, CloseIcon };
+export {
+  SocialLinks,
+  ContactSection,
+  Album,
+  AlbumSection,
+  AlbumTitle,
+  Photo,
+  CloseIcon,
+};

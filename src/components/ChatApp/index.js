@@ -41,9 +41,9 @@ function ChatApp({ children, ...rest }) {
           <NavBar />
         </Nav>
         <Sidebar>
-          {transitions.map(({ item, props }) => (
-            <animated.div style={props}>
-              <Routes location={item}>
+          {transitions && (
+            <animated.div style={transitions.props}>
+              <Routes location={transitions.item}>
                 <Route path="/" element={<MessageList />} />
                 <Route path="/contacts" element={<ContactList />} />
                 <Route path="/files" element={<FileList />} />
@@ -51,7 +51,7 @@ function ChatApp({ children, ...rest }) {
                 <Route path="/settings/*" element={<EditProfile />} />
               </Routes>
             </animated.div>
-          ))}
+          )}
         </Sidebar>
         <Content>
           {videoCalling && (

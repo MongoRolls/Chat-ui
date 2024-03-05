@@ -9,13 +9,13 @@ import theme from "theme";
 import Avatar from "components/Avatar";
 import face from "assets/images/face-male-1.jpg";
 
-function ContactCard({ children, ...rest }) {
+function ContactCard({ contact, children, ...rest }) {
   return (
     <ThemeProvider theme={theme}>
       <StyledContactCard {...rest}>
-        <Avatar src={face} status="online" />
-        <Name>李浩</Name>
-        <Intro>我是前端工程师</Intro>
+        <Avatar src={contact.avatar} status={contact.status} />
+        <Name>{contact.name}</Name>
+        <Intro>{contact.intro}</Intro>
       </StyledContactCard>
     </ThemeProvider>
   );
